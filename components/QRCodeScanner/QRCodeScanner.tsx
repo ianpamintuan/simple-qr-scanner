@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {Linking} from 'react-native';
+import {Linking, StyleSheet} from 'react-native';
 
 import {default as QRCodeScannerComponent} from 'react-native-qrcode-scanner';
 
@@ -19,6 +19,22 @@ export const QRCodeScanner: FC<QRCodeScannerProps> = ({
       onRead={onRead}
       reactivate
       reactivateTimeout={3000}
+      showMarker
+      markerStyle={styles.markerStyle}
+      topViewStyle={styles.topViewStyle}
+      bottomViewStyle={styles.bottomViewStyle}
     />
   );
 };
+
+const styles = StyleSheet.create({
+  topViewStyle: {
+    display: 'none',
+  },
+  markerStyle: {
+    borderColor: '#fff',
+  },
+  bottomViewStyle: {
+    backgroundColor: '#fff',
+  },
+});
