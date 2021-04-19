@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {default as QRCodeScannerComponent} from 'react-native-qrcode-scanner';
 
 interface QRCodeScannerProps {
@@ -16,6 +16,11 @@ export const QRCodeScanner: FC<QRCodeScannerProps> = ({onRead}) => {
       markerStyle={styles.markerStyle}
       topViewStyle={styles.topViewStyle}
       bottomViewStyle={styles.bottomViewStyle}
+      bottomContent={
+        <TouchableOpacity>
+          <Text style={styles.bottomContentText}>Scan QR code</Text>
+        </TouchableOpacity>
+      }
     />
   );
 };
@@ -29,5 +34,9 @@ const styles = StyleSheet.create({
   },
   bottomViewStyle: {
     backgroundColor: '#fff',
+  },
+  bottomContentText: {
+    color: 'red',
+    fontSize: 18,
   },
 });
